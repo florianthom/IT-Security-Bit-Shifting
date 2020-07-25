@@ -1,0 +1,22 @@
+it secruity
+- 3 Juli Klausurvorbereitung: Fragen der Fragebögen durchgehen
+formale sachen:
+-klausur gibt Punkte
+-Übungen gibt Punkte
+-Abschlussnote = alle Punkte zusammen
+Klausur
+- erste Frage: wollen sie später noch Übungen abgeben
+-orientiert sich an den Fragebögen
+-alle Hilfsmittel sind erlaubt
+-Fragen orientieren sich an den Fragebögen
+-fast alle fragen multiplizier
+-100% fragebogen 3,rsa und defihelman
+Übungsaufgaben
+-erste Aufgabe programmieren
+    so lange programmieren bis balken grün!?
+-schwer=division
+-hinteren Aufgaben darf man mit Java-Bibliotheken verbinden
+-sein euklidischer Algo in der erweiterten geht nur mit 1 Zahl gerade ungerade + 1 Zahl ungerade
+leicht: Hash
+-Testdaten: in den späteren Aufgaben sind die Formate ein bisschen anders
+    z.B. für AES oder Hash: man geht ja Schleifen durch: er gibt die Zwischenlösungen für jede Iteration!?

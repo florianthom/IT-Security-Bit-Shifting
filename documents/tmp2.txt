@@ -1,0 +1,32 @@
+datafile=hat line argument, liest lines; eigene filereader klasse
+	flow: FileNameInPackage into DataFile into TestFileIO -> GetTests -> TestIterator (inside GetTests)
+testfileio=parser für 1 testfile
+TestLine=pojo für 1 Zeile, die dann variablen name und value und lineNumber in testFile representiert
+GetTests=iterator der regelt z.B. das in einer zeile nicht nur a=0x02234 steht, sondern auch -0.23423
+
+ArithmeticTest extends Lib4Tests
+ConvertHexTest extends Lib4Tests
+GetTests implements Iterable<HashMap<String, String>>
+Lib4Tests {
+Mul10Test extends Lib4Tests
+public class ShiftLeftTest extends Lib4Tests {
+public class TestFileIO implements Iterator {
+
+
+
+
+
+package tests;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class test12 {
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+}

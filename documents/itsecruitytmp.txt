@@ -1,0 +1,90 @@
+     
+2500 (Dezimal) zu Hexa
+25600 : 16 =  1600  Rest:  0   --> Ziffer: 0
+      1600 : 16 =   100  Rest:  0   --> Ziffer: 0
+       100 : 16 =     6  Rest:  4   --> Ziffer: 4
+         6 : 16 =     0  Rest:  6   --> Ziffer: 6
+
+     Resultat: 6400
+
+
+Hexa(0x47753) zu Dezi
+     3:   3 ·      1 =       3
+     5:   5 ·     16 =      80
+     7:   7 ·    256 =    1792
+     7:   7 ·   4096 =   28672
+     4:   4 ·  65536 =  262144
+                       ———————
+                        292691
+
+
+
+
+
+
+
+Also ist 1 Zelle == ein Index im int-Array?
+
+
+
+
+Dezimalsystem macht aber für PC keinen Sinn, deswegen nehmen wir einen normalen Integer pro Ziffer - aber nutzen, soweit ich mich erinnern kann, nur die Hälfte davon, weil wir sonst mit den einzelnen Ziffer wegen Überlauf etc nicht ordentlich rechnen können.
+	-Ich verstehe den Bezug/Vergleich nicht zwischen Nutzen des Dezimalsystems und normalen Integer pro Ziffer nicht
+		-weil wir keine Speichereinheit für dezimal haben, sondern eben nur die datentypen char,short,int,... !?
+	-warum Hexadezimal und nicht Dual oder Oktalsystem oder irgendein anderes Zahlensystem?
+
+
+
+Hexadezimalsystem hat ja pro Ziffer 4 Bits
+	-ich habe das in google nachgeguckt, es stimmt natürlich, aber woher weist du das (ich habe eigentlich die Vorlesung gesehen)
+		- PC liegt basiert auf Binärsystem: 1111 = 1*2^3+1*2^2+1*2^1+1*2^0 = zwangsläufig 16 = 4 Bits sind für Hexadezimal notwendig
+			- tatsächlich/phsysisch=Binärsystem
+			- interpretiert/representiert=Hexadezimalsystem
+	-2^16 == 16 Bits == 65535 == FFFF
+
+
+4 Ziffern pro int-Zelle
+			-4 Zahlen des hexadezimal systems füllen die größe eines halben ints-komplett (32/2) aus
+			-2^16 == 16 Bits == 65535 == FFFF
+			-d.h. wir können nicht mehr Ziffern in eine Zelle speichern siehe:
+				- funktioniert: 0x4 * (2^16)^1 + 0x7753 * (2^16)^0
+				- funktioniert nicht: 4* (2^16)^1 + 65536 * (2^16)^0
+					- 65536 dürfte max 65535, da sonst überlauf auf das 17. Bit, das zwar in int vorhanden ist, wir aber nicht nutzen sollen
+
+also nutzen wir nun tatsächlich hexadezimal-zahlensystem für die interne representation
+	-was passiert wenn input ist: 0xFFFF: Wie jetzt in dezimal system umwandeln: wir haben ja ein int-array, da können wir doch nicht F in einer Zelle speichern
+		- nein wir benutzen intern ein dezimalsystem, deshalb auch max 4 hexadezimal-ziffern pro zelle, 4 hexadezimal-ziffern den wertebereich von 16bit int maximal ausreizen
+		- das heißt ein hexadezimaler wird zur erstellung eines bigints in decimal umgewandelt
+
+
+Hexadezimalsystem hat ja pro Ziffer 4 Bits, also sollten 4 Hexadezimalwerte perfekt in eine int-Zelle passen (4*8/2=16).
+	-also nehmen wir zur internen representation jetzt tatsächlich das hexadezimal system?
+	-du redest jetzt immer von bits, aber ich verstehe nicht genau wie man das in java umsetzen soll, ich meine zumindest ich habe noch nie in java mit bit-operationen gearbeitet, muss ich dann tatsächlich einzelne bits setzen oder verstehe ich das falsch?
+
+
+
+[von hex in dezi]
+Also Hexadezimalnummer splitten und jeweils 4 Ziffern in eine Stelle packen. 0x4 7753 müsste in zwei Zelle passen (=292.691). also ist der BigInteger dann  0x4 * (2^16)^1 + 0x7753 * (2^16)^0 (da wir nur die hälfte haben).
+	-okay, also speicher ich im Grunde doch nicht auf Bitebene, sondern eben die entsprechenden Zahlen (hier zum Beispiel 4 7753)
+	-das heißt unser Array wir jetzt wie folgt aussehen: [0004, 7753]
+
+
+Was passiert, wenn als Initialwert keine Hexadizimal-Zahl sondern eine Dezimalzahl z.B. new BigInt((int) 5)?
+	- dann wandeln wir die erst um in eine Hexadezimal zahl, um dann wieder 4 Ziffern zu nehmen?
+
+
+
+Warum nimmt Grabber bei 0x4 * (2^16)^1 + 0x7753 * (2^16)^0 eine ganze Zelle als eine Hexadezimale Zahl IN DER RECHNUNG (Beispiel: 0x7753) (aber es ist ja eigentlich gedacht 4 hexadezimale ziffern in 1 Zelle zu packen) und nicht jede einzelne Zahl
+
+
+warum speichert man nicht einfach alles im dezimalsystem ab und nimmt für jede zelle 1 ziffer z.B. 123 -> [1,2,3]
+	-... ich meine das ist doch viel einfacher oder?
+	- zu viel overhead
+
+in welche richtung soll gespeichert werden
+	- z.B. 123 zu [1,2,3] oder [3,2,1]
+		- da most important 1 ist, glaube ich 2. ist besser oder?
+		-[3,2,1]
+
+
+
