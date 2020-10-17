@@ -18,14 +18,14 @@ import testDriver.GetTests;
  *
  * @author Burkhard Messer <burkhard.messer@htw-berlin.de>
  */
-public class ShiftLeftTest extends Lib4Tests
+public class ShiftRightTest extends Lib4Tests
 {
 
-    private final static String FILENAME = "Shift-Left-Tests.txt";
+    private final static String FILENAME = "Shift-Right-Tests.txt";
 
     private static GetTests tests = null;
 
-    public ShiftLeftTest()
+    public ShiftRightTest()
     {
         
     }
@@ -46,39 +46,39 @@ public class ShiftLeftTest extends Lib4Tests
         while (ti.hasNext()) {
             String result;
             HashMap<String, String> cur = ti.next();
-//            if(!onlyTestCase(cur,"ShiftLeft-7")){
+//            if(!onlyTestCase(cur,"ShiftRight-5")){
 //                continue;
 //            }
-//            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-//            System.out.println(cur);
+            
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             
-            BigNumber.shiftLeft(a, 1);
+            BigNumber.shiftRight(a, 1);
+            
             result = a.toString16(OutputFormat.allHex);
             
             assertEquals("ShiftLeft test b" + " lineNo=" + cur.get("Line"), cur.get("b"), result);
             
-            BigNumber.shiftLeft(a, 1);
+            BigNumber.shiftRight(a, 1);
             result = a.toString16(OutputFormat.allHex);
             assertEquals("ShiftLeft test c" + " lineNo=" + cur.get("Line"), cur.get("c"), result);
             
-            BigNumber.shiftLeft(a, 1);
+            BigNumber.shiftRight(a, 1);
             result = a.toString16(OutputFormat.allHex);
             assertEquals("ShiftLeft test d" + " lineNo=" + cur.get("Line"), cur.get("d"), result);
             
-            BigNumber.shiftLeft(a, 1);
+            BigNumber.shiftRight(a, 1);
             result = a.toString16(OutputFormat.allHex);
             assertEquals("ShiftLeft test e" + " lineNo=" + cur.get("Line"), cur.get("e"), result);
             
-            BigNumber.shiftLeft(a, 1);
+            BigNumber.shiftRight(a, 1);
             result = a.toString16(OutputFormat.allHex);
             assertEquals("ShiftLeft test f" + " lineNo=" + cur.get("Line"), cur.get("f"), result);
             
-            BigNumber.shiftLeft(a, 1);
+            BigNumber.shiftRight(a, 1);
             result = a.toString16(OutputFormat.allHex);
             assertEquals("ShiftLeft test g" + " lineNo=" + cur.get("Line"), cur.get("g"), result);
             
-            BigNumber.shiftLeft(a, 1);
+            BigNumber.shiftRight(a, 1);
             result = a.toString16(OutputFormat.allHex);
             assertEquals("ShiftLeft test h" + " lineNo=" + cur.get("Line"), cur.get("h"), result);
         }

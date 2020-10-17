@@ -15,7 +15,9 @@ public class SizeOverflowException extends RuntimeException {
      * Creates a new instance of <code>SizeOverflowException</code> without
      * detail message.
      */
-    SizeOverflowException() {
+    SizeOverflowException()
+    {
+    	
     }
 
     /**

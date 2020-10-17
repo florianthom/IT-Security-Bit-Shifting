@@ -1,10 +1,8 @@
-package tests;
+package testDriver;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-import testDriver.IDataSource;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;

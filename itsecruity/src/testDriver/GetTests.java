@@ -1,10 +1,9 @@
-package tests;
+package testDriver;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import testDriver.*;
 import java.util.HashMap;
 import java.util.Iterator;
 
@@ -43,7 +42,6 @@ public class GetTests implements Iterable<HashMap<String, String>>{
     
     /**
      * 1 element = 1 Testcase with all variables and their values stored in a hashmap
-     * @author Florian
      *
      */
     private class TestIterator implements Iterator<HashMap<String, String>> { 

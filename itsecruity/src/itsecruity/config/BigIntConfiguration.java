@@ -9,7 +9,8 @@ package itsecruity.config;
  *
  * @author Burkhard Messer <burkhard.messer@htw-berlin.de>
  */
-public class BigIntConfiguration {
+public class BigIntConfiguration
+{
 
     public final static short INIT_SIZE = 100;  // min number of cells
     public final static short MAX_SIZE = 6000;  // max number of cells
@@ -17,12 +18,14 @@ public class BigIntConfiguration {
     
     
     
-    // glaube entspricht "base" bei ihm (oder es ist tatsächlich die Anzahl der Benutzen Bits innerhalb der aktuellen Zelle)
+    // bits used in one cell (equals unsigned short)
     public final static short CELL_SIZE = 16;           // 16 bit cells for 32 bit machines
     
     
-    
+    // ~65k
     public final static int CELL_MASK = 0xFFFF;         // 16 bit mask for 32 bit machines
+    
+    // 4294967295
     public final static int CELL_MASK2 = 0xFFFFFFFF;    // 32 bit mask for 64 bit machines
 
     public final static short CELL_SIZE_HEX = CELL_SIZE / 4;   // hex number per cell
@@ -31,4 +34,6 @@ public class BigIntConfiguration {
     
     
     public final static short ARRAY_BIT_SIZE_STATIC = 2048;
+    
+    public final static int hisLengthOfTestResults = 384;
 }

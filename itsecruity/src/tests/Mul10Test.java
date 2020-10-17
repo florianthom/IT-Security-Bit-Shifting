@@ -9,20 +9,22 @@ import java.util.HashMap;
 import java.util.Iterator;
 import org.junit.runner.RunWith;
 
-import itsecruity.BigInt;
+import itsecruity.BigNumber;
 import itsecruity.enums.OutputFormat;
+import testDriver.GetTests;
 
 /**
  *
  * @author Burkhard Messer <burkhard.messer@htw-berlin.de>
  */
-@SuppressWarnings({"checkstyle:javadocvariable", "checkstyle:javadocmethod"})
-public class Mul10Test extends Lib4Tests {
+public class Mul10Test extends Lib4Tests
+{
     final private String FILENAME = "Mul10-Tests.txt";
 
     private GetTests tests = null;
 
-    public Mul10Test() {
+    public Mul10Test()
+    {
         
     }
     
@@ -32,50 +34,49 @@ public class Mul10Test extends Lib4Tests {
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
             HashMap<String, String> cur = ti.next();
-//            if(!onlyTestCase(cur,"Mul10-6")) {
+//            if(!onlyTestCase(cur,"Mul10-5")) {
 //                continue;
 //            }
+            System.out.println("test: " + cur.get("t"));
             
-//            System.out.println("####### test "+cur.get("t")+" multiplication by 10");
-//            System.out.println(cur);
-            BigInt a = new BigInt(Short.valueOf(cur.get("s")),cur.get("a"));
-            BigInt b = new BigInt(Short.valueOf(cur.get("s")),cur.get("b"));
-            BigInt c = new BigInt(Short.valueOf(cur.get("s")),cur.get("c"));
-            BigInt d = new BigInt(Short.valueOf(cur.get("s")),cur.get("d"));
-            BigInt e = new BigInt(Short.valueOf(cur.get("s")),cur.get("e"));
-            BigInt f = new BigInt(Short.valueOf(cur.get("s")),cur.get("f"));
-            BigInt g = new BigInt(Short.valueOf(cur.get("s")),cur.get("g"));
-            BigInt h = new BigInt(Short.valueOf(cur.get("s")),cur.get("h"));
             
-            BigInt r;
-            r= BigInt.mul10(a); // a:= 10*a
+            BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
+            BigNumber b = new BigNumber(Short.valueOf(cur.get("s")),cur.get("b"));
+            BigNumber c = new BigNumber(Short.valueOf(cur.get("s")),cur.get("c"));
+            BigNumber d = new BigNumber(Short.valueOf(cur.get("s")),cur.get("d"));
+            BigNumber e = new BigNumber(Short.valueOf(cur.get("s")),cur.get("e"));
+            BigNumber f = new BigNumber(Short.valueOf(cur.get("s")),cur.get("f"));
+            BigNumber g = new BigNumber(Short.valueOf(cur.get("s")),cur.get("g"));
+            BigNumber h = new BigNumber(Short.valueOf(cur.get("s")),cur.get("h"));
+            
+            BigNumber r;
+            r= BigNumber.mul10(a); // a:= 10*a
             String result = r.toString16(OutputFormat.allHex);
-            assertEquals(cur.get("b"), result, "multiplication by 10 test" + " lineNo=" + cur.get("Line"));
-//            System.out.println("         test "+cur.get("t")+" multiplication by 10 c");
-            r= BigInt.mul10(r); // a:= 10*a
-            result = r.toString16(OutputFormat.allHex);
-            assertEquals(cur.get("c"), result, "multiplication by 10 test" + " lineNo=" + cur.get("Line"));
-//            System.out.println("         test "+cur.get("t")+" multiplication by 10 d");
-            r= BigInt.mul10(r); // a:= 10*a
-            result = r.toString16(OutputFormat.allHex);
-            assertEquals(cur.get("d"), result, "multiplication by 10 test" + " lineNo=" + cur.get("Line"));
-//            System.out.println("         test "+cur.get("t")+" multiplication by 10 e");
-            r= BigInt.mul10(r); // a:= 10*a
-            result = r.toString16(OutputFormat.allHex);
-            assertEquals(cur.get("e"), result, "multiplication by 10 test" + " lineNo=" + cur.get("Line"));
-//            System.out.println("         test "+cur.get("t")+" multiplication by 10 f");
-            r= BigInt.mul10(r); // a:= 10*a
-            result = r.toString16(OutputFormat.allHex);
-            assertEquals(cur.get("f"), result, "multiplication by 10 test" + " lineNo=" + cur.get("Line"));
-//            System.out.println("         test "+cur.get("t")+" multiplication by 10 g");
-            r= BigInt.mul10(r); // a:= 10*a
-            result = r.toString16(OutputFormat.allHex);
-            assertEquals(cur.get("g"), result, "multiplication by 10 test" + " lineNo=" + cur.get("Line"));
-//            System.out.println("         test "+cur.get("t")+" multiplication by 10 h");
-            r= BigInt.mul10(r); // a:= 10*a
-            result = r.toString16(OutputFormat.allHex);
-            assertEquals(cur.get("h"), result, "multiplication by 10 test" + " lineNo=" + cur.get("Line"));
+            assertEquals("multiplication by 10 test" + " lineNo=" + cur.get("Line"), cur.get("b"), result);
             
+            r= BigNumber.mul10(r); // a:= 10*a
+            result = r.toString16(OutputFormat.allHex);
+            assertEquals("multiplication by 10 test" + " lineNo=" + cur.get("Line"), cur.get("c"), result);
+            
+            r= BigNumber.mul10(r); // a:= 10*a
+            result = r.toString16(OutputFormat.allHex);
+            assertEquals("multiplication by 10 test" + " lineNo=" + cur.get("Line"), cur.get("d"), result);
+            
+            r= BigNumber.mul10(r); // a:= 10*a
+            result = r.toString16(OutputFormat.allHex);
+            assertEquals("multiplication by 10 test" + " lineNo=" + cur.get("Line"), cur.get("e"), result);
+            
+            r= BigNumber.mul10(r); // a:= 10*a
+            result = r.toString16(OutputFormat.allHex);
+            assertEquals("multiplication by 10 test" + " lineNo=" + cur.get("Line"), cur.get("f"), result);
+            
+            r= BigNumber.mul10(r); // a:= 10*a
+            result = r.toString16(OutputFormat.allHex);
+            assertEquals("multiplication by 10 test" + " lineNo=" + cur.get("Line"), cur.get("g"), result);
+            
+            r= BigNumber.mul10(r); // a:= 10*a
+            result = r.toString16(OutputFormat.allHex);
+            assertEquals("multiplication by 10 test" + " lineNo=" + cur.get("Line"), cur.get("h"), result);
         }
         tests= null;
     }

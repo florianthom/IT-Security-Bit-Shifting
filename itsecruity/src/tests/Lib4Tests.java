@@ -59,7 +59,14 @@ public class Lib4Tests {
 //    }
     
     
-    
+    protected boolean continue1 (HashMap<String, String> cur)
+    {
+    	if(cur.get("t").equals("Div10-8"))
+    	{
+    		return true;
+    	}
+    	return false;
+    }
     
     protected String reduceHexString(String hexString) {
         // +0x00000000yyyy to +0xyyyy
