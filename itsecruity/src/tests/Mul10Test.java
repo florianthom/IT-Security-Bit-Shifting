@@ -33,12 +33,7 @@ public class Mul10Test extends Lib4Tests
         tests = new GetTests(PACKAGENAME, DIRECTORY, FILENAME);
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
-            HashMap<String, String> cur = ti.next();
-//            if(!onlyTestCase(cur,"Mul10-5")) {
-//                continue;
-//            }
-            System.out.println("test: " + cur.get("t"));
-            
+            HashMap<String, String> cur = ti.next();            
             
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             BigNumber b = new BigNumber(Short.valueOf(cur.get("s")),cur.get("b"));

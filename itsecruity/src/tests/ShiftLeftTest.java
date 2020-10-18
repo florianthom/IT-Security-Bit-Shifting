@@ -46,11 +46,7 @@ public class ShiftLeftTest extends Lib4Tests
         while (ti.hasNext()) {
             String result;
             HashMap<String, String> cur = ti.next();
-//            if(!onlyTestCase(cur,"ShiftLeft-7")){
-//                continue;
-//            }
-//            System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
-//            System.out.println(cur);
+            
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             
             BigNumber.shiftLeft(a, 1);

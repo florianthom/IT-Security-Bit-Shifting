@@ -22,7 +22,7 @@ public class CompareTest extends Lib4Tests {
 
     public CompareTest()
     {
-        // to test lt, le, eq,
+    	
     }
 
     
@@ -33,10 +33,7 @@ public class CompareTest extends Lib4Tests {
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
             HashMap<String, String> cur = ti.next();
-//            if(!onlyTestCase(cur,"Compare-HexDec-2")) {
-//                continue;
-//            }
-
+            
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             BigNumber A = new BigNumber(Short.valueOf(cur.get("s")),cur.get("A"));
             assertEquals("convert to dec test" + " lineNo=" + cur.get("Line"), a.toString16(), A.toString16());
@@ -61,10 +58,7 @@ public class CompareTest extends Lib4Tests {
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
             HashMap<String, String> cur = ti.next();
-//            if(!onlyTestCase(cur,"Compare-HexDec-2")) {
-//                continue;
-//            }
-
+            
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             BigNumber A = new BigNumber(Short.valueOf(cur.get("s")),cur.get("A"));
             assertEquals("convert to dec test" + " lineNo=" + cur.get("Line"), a.toString16(), A.toString16());
@@ -93,9 +87,6 @@ public class CompareTest extends Lib4Tests {
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
             HashMap<String, String> cur = ti.next();
-            if(!onlyTestCase(cur,"Compare-HexDec-2")) {
-                continue;
-            }
 
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             BigNumber A = new BigNumber(Short.valueOf(cur.get("s")),cur.get("A"));

@@ -14,10 +14,6 @@ import itsecruity.BigNumber;
 import itsecruity.enums.OutputFormat;
 import testDriver.GetTests;
 
-/**
- *
- * @author Burkhard Messer <burkhard.messer@htw-berlin.de>
- */
 public class ShiftRightTest extends Lib4Tests
 {
 
@@ -46,9 +42,6 @@ public class ShiftRightTest extends Lib4Tests
         while (ti.hasNext()) {
             String result;
             HashMap<String, String> cur = ti.next();
-//            if(!onlyTestCase(cur,"ShiftRight-5")){
-//                continue;
-//            }
             
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             

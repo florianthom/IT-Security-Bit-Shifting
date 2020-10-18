@@ -13,10 +13,6 @@ import itsecruity.BigNumber;
 import itsecruity.enums.OutputFormat;
 import testDriver.GetTests;
 
-/**
- *
- * @author Burkhard Messer <burkhard.messer@htw-berlin.de>
- */
 public class Div10Test extends Lib4Tests
 {
     final private String FILENAME = "Div10-Tests.txt";
@@ -59,8 +55,7 @@ public class Div10Test extends Lib4Tests
             assertEquals("division by 10 test" + " lineNo=" + cur.get("Line"), cur.get("b"), result);
             
             r = BigNumber.div10(divisionResult2, divisionResult); // a:= 10/a
-//            System.out.println("input: " + BigNumber.printBigNumberInCellValues(divisionResult));
-//            System.out.println("input: " + BigNumber.printBigNumberInCellValues(divisionResult2));
+            
             result = divisionResult2.toString16(OutputFormat.allHex);
             assertEquals("division by 10 test" + " lineNo=" + cur.get("Line"), cur.get("c"), result);
 

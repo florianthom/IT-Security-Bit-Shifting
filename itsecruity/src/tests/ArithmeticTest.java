@@ -20,11 +20,14 @@ public class ArithmeticTest extends Lib4Tests {
 
     private GetTests tests = null;
 
-    public ArithmeticTest() {
+    public ArithmeticTest()
+    {
         
     }
     
-
+	//  if(!onlyTestCase(cur,"Arith-HexDec-25")) {
+	//      continue;
+	//  }
     
     @Test
     public void testAddition()
@@ -33,22 +36,15 @@ public class ArithmeticTest extends Lib4Tests {
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
             HashMap<String, String> cur = ti.next();
-            
-//            if(!onlyTestCase(cur,"Arith-HexDec-25")) {
-//                continue;
-//            }
-            
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             BigNumber b = new BigNumber(Short.valueOf(cur.get("s")),cur.get("b"));
             BigNumber c = new BigNumber(Short.valueOf(cur.get("s")),0);
-            
-            
             
             BigNumber.add(c, a, b);
             String result = c.toString16(OutputFormat.allHex);
             
             // parameter got changed (i use junit 4)
-            // -> because of that the proper parameter list is: msg, expected, actual          
+            // -> because of that the proper parameter list is: msg, expected, actual
             assertEquals( "addition test" + " lineNo=" + cur.get("Line"), cur.get("+"), result);
         }
         tests= null;
@@ -61,11 +57,7 @@ public class ArithmeticTest extends Lib4Tests {
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
             HashMap<String, String> cur = ti.next();
-//            if(!onlyTestCase(cur,"Arith-HexDec-27")) {
-//                continue;
-//            }
             
-
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             BigNumber b = new BigNumber(Short.valueOf(cur.get("s")),cur.get("b"));
             BigNumber c = new BigNumber(Short.valueOf(cur.get("s")),0);
@@ -85,10 +77,7 @@ public class ArithmeticTest extends Lib4Tests {
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
             HashMap<String, String> cur = ti.next();
-//            if(!onlyTestCase(cur,"Arith-HexDec-78")) {
-//                continue;
-//            }
-
+            
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             BigNumber A = new BigNumber(Short.valueOf(cur.get("s")),cur.get("A"));
             assertEquals("convert to dec test" + " lineNo=" + cur.get("Line"), a.toString16(), A.toString16());
@@ -115,10 +104,8 @@ public class ArithmeticTest extends Lib4Tests {
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
             HashMap<String, String> cur = ti.next();
-//            if(onlyTestCase(cur,"Arith-HexDec-10"))
-//            {
-//                continue;
-//            }
+            
+            // to skip division by 0 (according to example project)
             if(cur.get("/").equals("")) {
                 continue;
             }
@@ -151,15 +138,13 @@ public class ArithmeticTest extends Lib4Tests {
         Iterator<HashMap<String, String>> ti = tests.iterator();
         while (ti.hasNext()) {
             HashMap<String, String> cur = ti.next();
+            // get only division by 0 (according to example project)
             if(!cur.get("/").equals("")) {
                 continue;
             }
-
-
+            
             BigNumber a = new BigNumber(Short.valueOf(cur.get("s")),cur.get("a"));
             BigNumber A = new BigNumber(Short.valueOf(cur.get("s")),cur.get("A"));
-            
-            
             
             assertEquals("convert to dec test" + " lineNo=" + cur.get("Line"), a.toString16(), A.toString16());
             BigNumber b = new BigNumber(Short.valueOf(cur.get("s")),cur.get("b"));
