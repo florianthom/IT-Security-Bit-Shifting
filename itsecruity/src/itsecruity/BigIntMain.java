@@ -7,10 +7,6 @@ import itsecruity.enums.signt;
 public final class BigIntMain {
 	
 	
-	
-    /**
-     * Disable any inheritance.
-     */
     private BigIntMain()
     {
     	
@@ -19,13 +15,8 @@ public final class BigIntMain {
     // Numbers: 0 2 65535 4294967295 281474976710656
     public static void main(final String[] args) throws Exception {
 
-    	String tmp = BigNumber.repeatStringXTimes("0", BigIntConfiguration.hisLengthOfTestResults);
-    	System.out.println(tmp);
-    	
-//    	testDiv();
-//    	testMul();
-//    	testMulVitro();
-//    	testAddCell22();
+    	BigNumber test = new BigNumber("10");
+    	System.out.println(test.toString10());
     }
     
     
@@ -110,12 +101,6 @@ public final class BigIntMain {
     	System.out.println(BigNumber.printBigNumbersDual(container));
     	System.out.println(BigNumber.printBigNumbersDual(shouldBe));
     }
-    
-    
-    
-    
-    
-    
     
     
     public static void testMul() throws Exception
